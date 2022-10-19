@@ -54,7 +54,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Scan back-end
+          name: Scan frontend
           command: |
               cd frontend
               npm install
@@ -72,6 +72,7 @@ jobs:
               cd backend
               npm install
               npm audit fix --audit-level=critical 
+              npm audit fix --audit-level=critical --force
               npm audit --audit-level=critical
 
 workflows:
