@@ -75,6 +75,24 @@ jobs:
               npm audit fix --audit-level=critical --force
               npm audit --audit-level=critical
 
+  deploy-infrastructure:
+    docker: 
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run:
+          name: Install tar gzip
+          command: 
+              yum install -y tar gzip
+      - run:
+          name: Deploy Infrastructure
+          command: |
+              aws cloudformation deploy \
+                  --template-file .circleci/files/backend.yml \
+                  --stack-name "udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}" \
+                  --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"  \
+                  --tags project=udapeople
+
 workflows:
   default:
     jobs:
