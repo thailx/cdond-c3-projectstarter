@@ -90,7 +90,7 @@ jobs:
             aws cloudformation deploy \
               --template-file .circleci/files/backend.yml \
               --tags project=udapeople \
-              --stack-name "udapeople-backend-stack \
+              --stack-name udapeople-backend-stack \
               --parameter-overrides ID=975186df
           no_output_timeout: 30m
 
