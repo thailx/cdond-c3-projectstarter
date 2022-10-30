@@ -104,18 +104,15 @@ jobs:
             - "d4:8f:7c:61:e6:ad:8c:c7:84:2b:16:bd:bb:d2:60:19"
       - attach_workspace:
           at: ~/
-      - run:
-          name: Install tar gzip
-          command: 
-              yum install -y tar gzip
+      # - run:
+      #     name: Install tar gzip
+      #     command: yum install -y tar gzip
       - run:
           name: Install ansible
-          command: 
-              apk add --update ansible
+          command: apk add --update ansible
       - run:
           name: Install openssh
-          command: 
-              apk add openssh-client
+          command: apk add openssh-client
       - run:
           name: Configure server
           command: |
