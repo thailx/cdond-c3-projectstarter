@@ -106,13 +106,16 @@ jobs:
           at: ~/
       - run:
           name: Install tar gzip
-          command: yum install -y tar gzip
+          command: 
+              yum install -y tar gzip
       - run:
           name: Install ansible
-          command: apk add --update ansible
+          command: 
+              apk add --update ansible
       - run:
           name: Install openssh
-          command: apk add openssh-client
+          command: 
+              apk add openssh-client
       - run:
           name: Configure server
           command: |
