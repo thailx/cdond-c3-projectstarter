@@ -101,7 +101,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "d4:8f:7c:61:e6:ad:8c:c7:84:2b:16:bd:bb:d2:60:19"
+            - "18:d5:90:e4:dc:99:73:d8:7f:f9:ae:79:1d:20:ca:26"
       - attach_workspace:
           at: ~/
       # - run: udacity
