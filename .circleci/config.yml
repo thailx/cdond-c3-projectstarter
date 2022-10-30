@@ -104,7 +104,7 @@ jobs:
             - "18:d5:90:e4:dc:99:73:d8:7f:f9:ae:79:1d:20:ca:26"
       - attach_workspace:
           at: ~/
-      # - run: udacity
+      # - run: udacity12
       #     name: Install tar gzip
       #     command: yum install -y tar gzip
       - run:
