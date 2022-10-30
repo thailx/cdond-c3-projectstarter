@@ -1,2 +1,2 @@
 [web]
-52.202.212.123
+ec2-52-202-212-123.compute-1.amazonaws.com
