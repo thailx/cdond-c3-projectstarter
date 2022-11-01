@@ -120,7 +120,7 @@ jobs:
             # ansible-playbook -i ~/project/.circleci/ansible/inventory.txt configure-server.yml
             cd .circleci/ansible && \
             ansible-playbook -i inventory.txt configure-server.yml
-          no_output_timeout: 30m
+          # no_output_timeout: 30m
 
 workflows:
   default:
