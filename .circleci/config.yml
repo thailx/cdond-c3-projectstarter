@@ -104,7 +104,7 @@ jobs:
       - attach_workspace:
           at: ~/
       # - run: udacity12 975186df
-      #     name: Install tar gzip
+      #     name: Install tar gzip AA
       #     command: yum install -y tar gzip
       - run:
           name: Install ansible
