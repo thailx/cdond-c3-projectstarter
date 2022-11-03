@@ -236,21 +236,23 @@ jobs:
             cd backend
             npm install
             npm run migrations > migrations_dump.txt
+
+            echo "migrations_dump -------"
+            cat migrations_dump.txt
       - run:
           name: Send Migration status to kvdb.io
           command: |
-            cat ~/project/backend/migrations_dump.txt
             cd backend
             if grep -q "has been executed successfully." migrations_dump.txt
             then
-              SUCCESS=$(curl https://kvdb.io/BaNERV9WMY3r1jMGgJoYCY/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1')
+              curl https://kvdb.io/BaNERV9WMY3r1jMGgJoYCY/migration_${CIRCLE_WORKFLOW_ID:0:7 -d '1')
               echo "MIGRATION WAS SUCCESSFUL"
             else
-              SUCCESS=$(curl https://kvdb.io/BaNERV9WMY3r1jMGgJoYCY/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '0')
+              curl https://kvdb.io/BaNERV9WMY3r1jMGgJoYCY/migration_${CIRCLE_WORKFLOW_ID:0:7 -d '0')
               echo "MIGRATION FAILED"
             fi
-      - destroy-environment:
-          workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
+      # - destroy-environment:
+      #     workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
 
   deploy-frontend:
     docker:
