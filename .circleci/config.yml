@@ -218,7 +218,7 @@ jobs:
   run-migrations:
     docker:
       # Docker image here that supports NodeJS
-      - image: circleci/node:13.8.0
+      - image: cimg/node:19.0.0
     steps:
       # Checkout code from git
       - checkout
@@ -252,8 +252,8 @@ jobs:
               curl https://kvdb.io/BaNERV9WMY3r1jMGgJoYCY/migration_${CIRCLE_WORKFLOW_ID:0:7 -d '0')
               echo "MIGRATION FAILED"
             fi
-      # - destroy-environment:
-      #     workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
+      - destroy-environment:
+          workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
 
   deploy-frontend:
     docker:
